@@ -362,8 +362,6 @@
  document.addEventListener('DOMContentLoaded', function () {
       const preloader = document.getElementById('preloader');
       const iframe = document.querySelector('iframe');
-      const resetButton = document.getElementById('resetBtn');
-      if (!isStandalone()) { resetButton.style.display = 'none'; }
       iframe.onload = function () {
         setTimeout(() => {
           preloader.classList.add('preloader-fade-out');
