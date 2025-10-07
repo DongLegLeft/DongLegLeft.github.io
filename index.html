@@ -258,6 +258,18 @@
         flex-direction: column;
         z-index: 9999;
         overflow: visible;
+        pointer-events: none;
+        transition: all 3s ease-in-out;
+      }
+       .pre-load-fade-out {
+        opacity: 0;
+        transition: opacity 4s ease-out;
+        pointer-events: none;
+      }
+      .preloader-fade-out {
+        opacity: .0;
+        background: #000 !important;
+        transform: scale(54) translateY(-255px);
       }
 
       .d3l-logo {
@@ -267,6 +279,13 @@
         width: auto;
         padding: 23px;
         background: transparent;
+        opacity: 0;
+        animation: fadeIn 1s ease forwards;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(18px); }
+        to { opacity: 1; transform: translateY(0); }
       }
 
   </style>
@@ -340,12 +359,20 @@
   </iframe>
   
   <script>
-            document.addEventListener('DOMContentLoaded', function() {
-            const preloader = document.getElementById('preloader');
-            setTimeout(() => {
-                preloader.style.display = 'none';
-            }, 2500);
-        });
+ document.addEventListener('DOMContentLoaded', function () {
+      const preloader = document.getElementById('preloader');
+      const iframe = document.querySelector('iframe');
+      const resetButton = document.getElementById('resetBtn');
+      if (!isStandalone()) { resetButton.style.display = 'none'; }
+      iframe.onload = function () {
+        setTimeout(() => {
+          preloader.classList.add('preloader-fade-out');
+          setTimeout(() => {
+            preloader.style.display = 'none';
+          }, 2000);
+        }, 1500);
+      };
+    });
 
     
 function isDesktop() {
@@ -422,14 +449,9 @@ function setupInstallPrompt() {
     });
 }
 
-// Run when page loads
 document.addEventListener('DOMContentLoaded', () => {
     setupInstallPrompt();
-  // gtag('event', 'app_mode', {
-  //       'event_category': 'User Engagement',
-  //       'event_label': isStandalone() ? 'Standalone App' : 'Browser',
-  //       'value': isStandalone() ? 1 : 0
-  //   });
+
 });
 
 // Platform detection functions (unchanged)
@@ -441,52 +463,6 @@ function isStandalone() {
     return window.matchMedia('(display-mode: standalone)').matches;
 }
 
-function resizeIframe() {
-    var iframe = document.querySelector("iframe");
-    if (iframe) {
-        // Debounce the resize to prevent excessive updates
-        let timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-            // Use screen dimensions as fallback
-            const height = window.innerHeight || document.documentElement.clientHeight || screen.height;
-            const width = window.innerWidth || document.documentElement.clientWidth || screen.width;
-
-            iframe.style.height = height + "px";
-            iframe.style.width = width + "px";
-
-            // Remove any potential scrollbars
-            iframe.style.border = "none";
-            iframe.style.margin = "0";
-            iframe.style.padding = "0";
-        }, 100);
-    }
-}
-
-// Event listeners
-window.addEventListener("resize", resizeIframe);
-window.addEventListener("load", resizeIframe);
-window.addEventListener("orientationchange", resizeIframe);
-
-// Media query listener
-if (window.matchMedia) {
-    const mediaQuery = window.matchMedia("(orientation: portrait)");
-    mediaQuery.addEventListener("change", resizeIframe);
-}
-
-// Initial call
-resizeIframe();  
-
-  // window.dataLayer = window.dataLayer || [];
-  // function gtag(){dataLayer.push(arguments);}
-  // gtag('js', new Date());
-
-  // gtag('config', 'G-412Z9MW1V8');
-//        try {
-//   gtag('config', 'G-412Z9MW1V8');
-// } catch (e) {
-//   console.error('Google Analytics error:', e);
-// }
   </script>
 </body>
 
