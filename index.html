@@ -11,15 +11,15 @@
   <meta name="theme-color" content="#333">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-  <link rel="icon" type="image/png" sizes="32x32" href="BobcatPGANew3.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="BobcatPGANew3.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="D3L.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="D3L.png">
 
-  <link rel="apple-touch-icon" href="BobcatPGANew3.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="BobcatPGANew3.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="BobcatPGANew3.png">
-  <link rel="apple-touch-icon" sizes="167x167" href="BobcatPGANew3.png">
+  <link rel="apple-touch-icon" href="D3L.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="D3L.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="D3L.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="D3L.png">
 
-  <link rel="shortcut icon" href="BobcatPGANew3.png">
+  <link rel="shortcut icon" href="D3L.png">
 
   <link rel="manifest" href="manifest.json">
 
@@ -307,44 +307,60 @@
     </div> -->
   </div>
 
-  <div id="install-banner">
-    <p style="margin: 5px;">Add to Home Screen for the best experience</p>
-    <button id="install-button">Add</button>
-    <button id="dismiss-button">Dismiss</button>
-  </div>
-
-  <div id="ios-install-banner"
-    style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(0, 0, 0, 0.85); color: white; padding: 10px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); z-index: 1001; text-align: left; max-width: 90%; font-family: Arial, sans-serif;">
-    <button id="ios-install-close" style="position: absolute; top: -2px; right: -2px; background: #ff4500; border: 1px solid black; width: 24px; height: 24px; font-size: 20px; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; line-height: 1; border-radius: 5px;">✕</button>
-    <h3 style="margin: 0 0 10px 0; font-size: 18px; font-weight: bold; display: flex; align-items: center;">
-      <img src="BobcatPGANew3.png" alt="Pick 5 Logo" style="width: 30px; height: 30px; margin-right: 8px; vertical-align: middle;border: 1px solid white; border-radius: 8px;">Install '>Dong Leg Left League'</br>on Your Device.
+  <!-- =======================
+       Install Banner Section
+  ======================== -->
+  <div id="install-banner" role="dialog" aria-labelledby="install-banner-title">
+    <h3 id="install-banner-title">
+      <img src="D3L.png" class="install-icon-header" alt="D3L Logo">
+      Install 'Pick 6' on your device.
     </h3>
-    <p style="margin: 0 0 10px 0; font-size: 14px;">To install this as an app on your device, follow the below
-      instructions.</p>
-    <p style="margin: 5px 0; font-size: 14px;">1. Tap on share <img src="https://static-00.iconduck.com/assets.00/ios-share-icon-1490x2048-h3vjhu9m.png" alt="Share icon" style="width: 16px; height: 16px; object-fit: contain; vertical-align: middle;filter: invert(100%);">
-    </p>
-    <p style="margin: 5px 0; font-size: 14px;">2. Select 'Add to Home Screen' <img src="https://static-00.iconduck.com/assets.00/plus-square-icon-2048x2048-h144q2yx.png" alt="Share icon" style="width: 16px; height: 16px; object-fit: contain; vertical-align: middle;filter: invert(100%);">
-    </p>
-    <p style="margin: 5px 0; font-size: 14px;">3. Click 'Add'</p>
-    <!-- <div style="display: flex; justify-content: flex-end; margin-top: 0px;">
-        <button id="ios-install-dismiss" style="background: #ff4500;border: none;color: white; padding: 5px 12px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin: 4px 2px;cursor: pointer;border-radius: 4px;">Dismiss</button>
-    </div> -->
+    <!-- <p style="margin: 5px;">Add 'D3L' to Home Screen for the best experience</p> -->
+    <button id="install-button" aria-label="Add app to home screen">ADD</button>
+    <button id="dismiss-button" aria-label="Dismiss install prompt">DISMISS</button>
   </div>
 
-  <iframe 
-    src="https://script.google.com/macros/s/AKfycbx042bk5gtZEcJMaRohaFEzOjlUjB089o8FhxqBXLxmzPZi8W7Va_wYuC8seJgfxIt2/exec"
-  frameborder="0"
-  scrolling="yes"
-  allowfullscreen
-  allow="fullscreen; clipboard-write"
-  sandbox="allow-scripts allow-same-origin allow-forms"
->
-</iframe>
-  
-<!--   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z2VF1K0SZM"></script> -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-412Z9MW1V8"></script>
-  <script>
+  <!-- =======================
+       iOS Install Banner Section
+  ======================== -->
+  <div id="ios-install-banner" role="dialog" aria-labelledby="ios-install-banner-title">
+    <button id="ios-install-close" aria-label="Close iOS install banner">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="#3d79df" height="27" width="27" aria-hidden="true">
+        <path stroke="#3d79df" stroke-width="2"
+          d="M3.6466666666666665 3.6466666666666665a0.5 0.5 0 0 1 0.7066666666666667 0L8 7.293333333333333l3.6466666666666665 -3.6466666666666665a0.5 0.5 0 1 1 0.7066666666666667 0.7066666666666667L8.706666666666667 8l3.6466666666666665 3.6466666666666665a0.5 0.5 0 1 1 -0.7066666666666667 0.7066666666666667L8 8.706666666666667l-3.6466666666666665 3.6466666666666665a0.5 0.5 0 0 1 -0.7066666666666667 -0.7066666666666667L7.293333333333333 8 3.6466666666666665 4.3533333333333335a0.5 0.5 0 0 1 0 -0.7066666666666667Z">
+        </path>
+      </svg>
+    </button>
+    <h3 id="ios-install-banner-title">
+      <img src="D3L.png" class="install-icon-header" alt="D3L Logo">
+      Install 'D3L' on your device.
+    </h3>
+    <p class="install-details">
+      1. Tap the <strong>Share</strong> icon.
+      <img src="https://raw.githubusercontent.com/BobcatPGAMajors/BobcatPGAMajors.github.io/refs/heads/main/shareIcon.png" alt="Share icon" class="install-icon">
+    </p>
+    <p class="install-details">
+      2. Select <strong>Add to Home Screen</strong>.
+      <img src="https://raw.githubusercontent.com/joespick6/joespick6.github.io/refs/heads/main/HomeScreenIcon.png" alt="Home Screen icon" class="install-icon">
+    </p>
+    <p class="install-details" style="margin-bottom: 8px;">3. Tap <strong>Add</strong>.</p>
+  </div>
 
+  <!-- =======================
+       Main App iframe
+  ======================== -->
+  <iframe
+    id="sandboxFrame"
+    title="Dong Leg Left League"
+    src="https://script.google.com/macros/s/AKfycbz7zyx-Duk4PtSMjQfnYDZvvPJfxBeutuDngO8O99vqRlbDxetXxN5qngbNPwjNTa6O/exec"
+    frameborder="0"
+    scrolling="yes"
+    allow="accelerometer *; ambient-light-sensor *; autoplay *; camera *; clipboard-read *; clipboard-write *; encrypted-media *; fullscreen *; geolocation *; gyroscope *; magnetometer *; microphone *; midi *; payment *; picture-in-picture *; screen-wake-lock *; speaker *; sync-xhr *; usb *; web-share *; vibrate *; vr *"
+    sandbox="allow-downloads allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation allow-storage-access-by-user-activation"
+    loading="eager">
+  </iframe>
+  
+  <script>
             document.addEventListener('DOMContentLoaded', function() {
             const preloader = document.getElementById('preloader');
             setTimeout(() => {
@@ -430,11 +446,11 @@ function setupInstallPrompt() {
 // Run when page loads
 document.addEventListener('DOMContentLoaded', () => {
     setupInstallPrompt();
-  gtag('event', 'app_mode', {
-        'event_category': 'User Engagement',
-        'event_label': isStandalone() ? 'Standalone App' : 'Browser',
-        'value': isStandalone() ? 1 : 0
-    });
+  // gtag('event', 'app_mode', {
+  //       'event_category': 'User Engagement',
+  //       'event_label': isStandalone() ? 'Standalone App' : 'Browser',
+  //       'value': isStandalone() ? 1 : 0
+  //   });
 });
 
 // Platform detection functions (unchanged)
@@ -482,16 +498,16 @@ if (window.matchMedia) {
 // Initial call
 resizeIframe();  
 
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  // window.dataLayer = window.dataLayer || [];
+  // function gtag(){dataLayer.push(arguments);}
+  // gtag('js', new Date());
 
   // gtag('config', 'G-412Z9MW1V8');
-       try {
-  gtag('config', 'G-412Z9MW1V8');
-} catch (e) {
-  console.error('Google Analytics error:', e);
-}
+//        try {
+//   gtag('config', 'G-412Z9MW1V8');
+// } catch (e) {
+//   console.error('Google Analytics error:', e);
+// }
   </script>
 </body>
 
