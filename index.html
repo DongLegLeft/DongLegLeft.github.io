@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Bobcat PGA Majors">
+  <meta name="application-name" content="Bobcat PGA Majors">
+  <meta name="theme-color" content="#333">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="BobcatPGANew3.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="BobcatPGANew3.png">
+
+  <link rel="apple-touch-icon" href="BobcatPGANew3.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="BobcatPGANew3.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="BobcatPGANew3.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="BobcatPGANew3.png">
+
+  <link rel="shortcut icon" href="BobcatPGANew3.png">
+
+  <link rel="manifest" href="manifest.json">
+
+  <title>Dong Leg Left League</title>
+  <style>
+    html,
+    body {
+      background-color: #f3f3f3;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      overscroll-behavior: none;
+    }
+
+    * {
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-text-size-adjust: none;
+      text-size-adjust: none;
+    }
+
+    input,
+    textarea {
+      font-size: 16px !important;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+      overflow: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+       background-color: black;
+    }
+
+    #install-banner {
+      display: none;
+      position: fixed;
+      margin: 5px;
+      border: 2px solid rgb(71, 143, 223);
+      background: rgba(0, 0, 0, 0.85);
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      color: white;
+      text-align: center;
+      padding: 5px;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      width: max-content;
+      margin: 0px auto;
+    }
+
+    #install-banner button {
+      background-color: #ff4500;
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    #ios-install-banner {
+      display: none;
+      position: fixed;
+      margin: 5px;
+      border: 2px solid #ff4500;
+      background: rgba(0, 0, 0, 0.85);
+      bottom: 1px;
+      left: 0;
+      right: 0;
+      color: white;
+      text-align: center;
+      padding: 5px;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      width: max-content;
+      margin: 0px auto;
+    }
+
+    #ios-install-banner button {
+      background-color: #ff4500;
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    #preloader {
+    display: none;
+/*       position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      overflow: hidden;
+      background: linear-gradient(to top, #000 3%, rgba(0, 0, 0, 0.8) 5%, rgba(0, 0, 0, 0) 7%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.8) 90%, #000 99%),
+        url(https://cf-images.us-east-1.prod.boltdns.net/v1/static/1918791248001/72ba1096-720f-4672-ab3d-6db20aa18c77/5ac371e2-e487-4a48-8009-7755f3b6ecae/1280x720/match/image.jpg);
+      color: white;
+      padding: 0px;
+      background-attachment: fixed;
+      background-repeat: round;
+      background-size: cover; */
+    }
+
+    #preloader-text {
+      background: 50% 100% / 50% 50% no-repeat radial-gradient(ellipse at bottom, #00205b, transparent, transparent);
+      -webkit-background-clip: text; 
+       background-clip: text;
+      color: transparent;
+      font-size: 7rem;
+      /* font-family: "Source Sans Pro", sans-serif; */
+/*       animation: reveal 2000ms ease-in-out forwards 200ms, linear infinite 2000ms; */
+      font-weight: 900;
+      white-space: nowrap;
+      line-height: 1;
+      text-align: center;
+      position: relative;
+      -webkit-text-stroke: 2px white;
+      animation: slow 3s ease-in-out forwards;
+    }
+/*     #preloader-text::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 10px;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(200, 200, 200, 0.6) 10%, rgba(200, 200, 200, 0.2) 50%, transparent);
+      filter: blur(16px);
+      opacity: 0.9;
+      transform: translateX(-50%) scale(1);
+      pointer-events: none;
+} */
+    #preloader-text {
+  color: transparent; /* Keep if you're using background-clip/text effects */
+}
+    .top-text{
+      color: white;
+      -webkit-text-stroke: 4px #093b60;      
+    }
+    .us-text,
+.open-text {
+  display: inline;
+  font-family: inherit;
+}
+    .us-text {
+  color: #d02030;
+}
+
+.open-text {
+  color: #093b60;
+}
+  .course-text {
+    color: white;
+    font-size: 25px;
+    font-weight: 200;
+    width: 100%;
+    top: -62px;
+    position: relative;
+    }
+
+    @keyframes slow {
+  from {
+        opacity: 0;
+  }
+  to {
+        opacity: 1;
+  }
+}
+
+/*     @keyframes reveal {
+      80% {
+        letter-spacing: 8px;
+      }
+
+      100% {
+        background-size: 300% 300%;
+      }
+    } */
+
+    @media (max-width: 1100px) {
+      
+      #ios-install-banner {
+        width: width: -webkit-fill-available;
+        margin: 0px 3px;
+    }
+      #install-banner {
+        width: width: -webkit-fill-available;
+        margin: 0px 3px;
+      }
+      #preloader {
+/*         background: linear-gradient(to top, #000 3%, rgba(0, 0, 0, 0.8) 5%, rgba(0, 0, 0, 0) 28%, rgba(243, 243, 243, 0) 90%, rgba(243, 243, 243, 0.8) 96%, #f3f3f3 98%), 
+                    url(https://cf-images.us-east-1.prod.boltdns.net/v1/static/1918791248001/72ba1096-720f-4672-ab3d-6db20aa18c77/5ac371e2-e487-4a48-8009-7755f3b6ecae/1280x720/match/image.jpg);
+        background-attachment: fixed;
+                background-repeat: unset;
+        background-size: cover;
+        background-position: calc(50% - 83px) center;
+        background-blend-mode: hard-light; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow: hidden;
+    color: white;
+    padding: 0px;
+        background: #04051b;
+        background-attachment: fixed;
+        background-repeat: repeat-x;
+        background-size: contain;
+        background-position: center calc(50% - 43px);
+        background-blend-mode: hard-light;
+        background-image: url(https://raw.githubusercontent.com/BobcatPGAMajors/BobcatPGAMajors.github.io/refs/heads/main/The%20Open.png);
+    }
+      #preloader-text{
+        padding-bottom: 10%;
+                font-size: 5em;
+      }
+      .top-text {
+            -webkit-text-stroke: 3px #093b60;
+      }
+.course-text {
+    color: white;
+    font-size: 16px;
+    font-weight: 200;
+    width: 100%;
+    top: -50px;
+    position: relative;
+        -webkit-text-stroke: initial;
+}
+    }
+
+  </style>
+</head>
+
+<body>
+
+  
+  <div id="preloader">
+<!--     <div id="preloader-text">
+      <span class="top-text">125th</span>
+       </br>
+        <span class="us-text">US</span><span class="open-text">OPEN</span>
+        </br>
+        <span class="course-text">Oakmont Country Club • Oakmont, Pa. • June 12 - 15</span>
+    </div> -->
+  </div>
+
+  <div id="install-banner">
+    <p style="margin: 5px;">Add to Home Screen for the best experience</p>
+    <button id="install-button">Add</button>
+    <button id="dismiss-button">Dismiss</button>
+  </div>
+
+  <div id="ios-install-banner"
+    style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(0, 0, 0, 0.85); color: white; padding: 10px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); z-index: 1001; text-align: left; max-width: 90%; font-family: Arial, sans-serif;">
+    <button id="ios-install-close" style="position: absolute; top: -2px; right: -2px; background: #ff4500; border: 1px solid black; width: 24px; height: 24px; font-size: 20px; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; line-height: 1; border-radius: 5px;">✕</button>
+    <h3 style="margin: 0 0 10px 0; font-size: 18px; font-weight: bold; display: flex; align-items: center;">
+      <img src="BobcatPGANew3.png" alt="Pick 5 Logo" style="width: 30px; height: 30px; margin-right: 8px; vertical-align: middle;border: 1px solid white; border-radius: 8px;">Install '>Dong Leg Left League'</br>on Your Device.
+    </h3>
+    <p style="margin: 0 0 10px 0; font-size: 14px;">To install this as an app on your device, follow the below
+      instructions.</p>
+    <p style="margin: 5px 0; font-size: 14px;">1. Tap on share <img src="https://static-00.iconduck.com/assets.00/ios-share-icon-1490x2048-h3vjhu9m.png" alt="Share icon" style="width: 16px; height: 16px; object-fit: contain; vertical-align: middle;filter: invert(100%);">
+    </p>
+    <p style="margin: 5px 0; font-size: 14px;">2. Select 'Add to Home Screen' <img src="https://static-00.iconduck.com/assets.00/plus-square-icon-2048x2048-h144q2yx.png" alt="Share icon" style="width: 16px; height: 16px; object-fit: contain; vertical-align: middle;filter: invert(100%);">
+    </p>
+    <p style="margin: 5px 0; font-size: 14px;">3. Click 'Add'</p>
+    <!-- <div style="display: flex; justify-content: flex-end; margin-top: 0px;">
+        <button id="ios-install-dismiss" style="background: #ff4500;border: none;color: white; padding: 5px 12px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin: 4px 2px;cursor: pointer;border-radius: 4px;">Dismiss</button>
+    </div> -->
+  </div>
+
+  <iframe 
+    src="https://script.google.com/macros/s/AKfycbx042bk5gtZEcJMaRohaFEzOjlUjB089o8FhxqBXLxmzPZi8W7Va_wYuC8seJgfxIt2/exec"
+  frameborder="0"
+  scrolling="yes"
+  allowfullscreen
+  allow="fullscreen; clipboard-write"
+  sandbox="allow-scripts allow-same-origin allow-forms"
+>
+</iframe>
+  
+<!--   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z2VF1K0SZM"></script> -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-412Z9MW1V8"></script>
+  <script>
+
+            document.addEventListener('DOMContentLoaded', function() {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 5000);
+        });
+
+    
+function isDesktop() {
+    const userAgent = navigator.userAgent.toLowerCase();
+    // Check for common desktop-specific keywords in userAgent
+    const isDesktopUA = /windows nt|macintosh|linux/i.test(userAgent) && !/mobile|android|iphone|ipad|ipod/i.test(userAgent);
+    // Optionally, check screen width (e.g., > 1024px for desktop)
+    const isLargeScreen = window.innerWidth > 1024;
+    return isDesktopUA && isLargeScreen;
+}
+
+function isAndroid() {
+    return /Android/i.test(navigator.userAgent);
+}
+
+// Updated setupInstallPrompt function
+function setupInstallPrompt() {
+    const installBanner = document.getElementById('install-banner');
+    const iosInstallBanner = document.getElementById('ios-install-banner');
+    const installButton = document.getElementById('install-button');
+    const dismissButton = document.getElementById('dismiss-button');
+    const iosCloseButton = document.getElementById('ios-install-close');
+
+    // If on desktop, hide both banners and exit
+    if (isDesktop()) {
+        installBanner.style.display = 'none';
+        iosInstallBanner.style.display = 'none';
+        return;
+    }
+
+    // If already installed (standalone mode), hide both banners
+    if (isStandalone()) {
+        installBanner.style.display = 'none';
+        iosInstallBanner.style.display = 'none';
+        return;
+    }
+
+    // Platform-specific handling for non-desktop devices
+    if (isIOS()) {
+        iosInstallBanner.style.display = 'block'; // Show iOS banner with instructions
+
+        // Close button (X): Hide the banner
+        iosCloseButton.addEventListener('click', () => {
+            iosInstallBanner.style.display = 'none';
+        });
+    } else {
+        // Android/PC: Show install banner when beforeinstallprompt fires
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installBanner.style.display = 'block';
+        });
+    }
+
+    // Install button for Android/PC
+    installButton.addEventListener('click', () => {
+        if (deferredPrompt) {
+            installBanner.style.display = 'none';
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('User accepted the install prompt');
+                } else {
+                    console.log('User dismissed the install prompt');
+                }
+                deferredPrompt = null;
+            });
+        }
+    });
+
+    // Dismiss button for Android/PC banner
+    dismissButton.addEventListener('click', () => {
+        installBanner.style.display = 'none';
+    });
+}
+
+// Run when page loads
+document.addEventListener('DOMContentLoaded', () => {
+    setupInstallPrompt();
+  gtag('event', 'app_mode', {
+        'event_category': 'User Engagement',
+        'event_label': isStandalone() ? 'Standalone App' : 'Browser',
+        'value': isStandalone() ? 1 : 0
+    });
+});
+
+// Platform detection functions (unchanged)
+function isIOS() {
+    return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+
+function isStandalone() {
+    return window.matchMedia('(display-mode: standalone)').matches;
+}
+
+function resizeIframe() {
+    var iframe = document.querySelector("iframe");
+    if (iframe) {
+        // Debounce the resize to prevent excessive updates
+        let timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            // Use screen dimensions as fallback
+            const height = window.innerHeight || document.documentElement.clientHeight || screen.height;
+            const width = window.innerWidth || document.documentElement.clientWidth || screen.width;
+
+            iframe.style.height = height + "px";
+            iframe.style.width = width + "px";
+
+            // Remove any potential scrollbars
+            iframe.style.border = "none";
+            iframe.style.margin = "0";
+            iframe.style.padding = "0";
+        }, 100);
+    }
+}
+
+// Event listeners
+window.addEventListener("resize", resizeIframe);
+window.addEventListener("load", resizeIframe);
+window.addEventListener("orientationchange", resizeIframe);
+
+// Media query listener
+if (window.matchMedia) {
+    const mediaQuery = window.matchMedia("(orientation: portrait)");
+    mediaQuery.addEventListener("change", resizeIframe);
+}
+
+// Initial call
+resizeIframe();  
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // gtag('config', 'G-412Z9MW1V8');
+       try {
+  gtag('config', 'G-412Z9MW1V8');
+} catch (e) {
+  console.error('Google Analytics error:', e);
+}
+  </script>
+</body>
+
+</html>
