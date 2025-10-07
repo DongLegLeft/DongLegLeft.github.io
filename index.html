@@ -8,7 +8,7 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Bobcat PGA Majors">
   <meta name="application-name" content="Bobcat PGA Majors">
-  <meta name="theme-color" content="#333">
+  <meta name="theme-color" content="#000">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
   <link rel="icon" type="image/png" sizes="32x32" href="D3L.png">
@@ -250,9 +250,9 @@
         width: -webkit-fill-available;
       }
       #preloader {
-        background: url(https://raw.githubusercontent.com/DongLegLeft/DongLegLeft.github.io/refs/heads/main/D3L.png);
-        background-attachment: fixed;
-        background-repeat: no-repeat;
+        /* background: url(https://raw.githubusercontent.com/DongLegLeft/DongLegLeft.github.io/refs/heads/main/D3L.png); */
+        /* background-attachment: fixed; */
+        /* background-repeat: no-repeat; */
         /* background-size: cover; */
         position: fixed;
         top: 0;
@@ -269,12 +269,18 @@
         color: white;
         padding: 0px;
         transition: opacity .9s ease-out, transform 2s ease-out;
-        background-position: center;
+        /* background-position: center; */
       }
       .preloader-fade-out {
         opacity: .0;
         background: #000 !important;
         transform: scale(54) translateY(-255px);
+      }
+      .d3l-logo {
+         /* background: url(https://raw.githubusercontent.com/DongLegLeft/DongLegLeft.github.io/refs/heads/main/D3L.png); */
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: center;
       }
 
   </style>
@@ -284,6 +290,7 @@
 
   
   <div id="preloader">
+    <img src="D3L.png" class="d3l-logo" alt="D3L Logo">
 <!--     <div id="preloader-text">
       <span class="top-text">125th</span>
        </br>
