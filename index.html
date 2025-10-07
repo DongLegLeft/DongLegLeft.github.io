@@ -259,13 +259,9 @@
         z-index: 9999;
         overflow: visible;
         pointer-events: none;
-        transition: all 3s ease-in-out;
+        transition: all 1.5s ease-in-out;
       }
-       .pre-load-fade-out {
-        opacity: 0;
-        transition: opacity 4s ease-out;
-        pointer-events: none;
-      }
+
       .preloader-fade-out {
         opacity: .0;
         background: #000 !important;
@@ -280,7 +276,7 @@
         padding: 23px;
         background: transparent;
         opacity: 0;
-        animation: fadeIn 1s ease forwards;
+        animation: fadeIn 2s ease forwards;
       }
 
       @keyframes fadeIn {
@@ -368,7 +364,7 @@
           setTimeout(() => {
             preloader.style.display = 'none';
           }, 2000);
-        }, 1500);
+        }, 1750);
       };
     });
 
